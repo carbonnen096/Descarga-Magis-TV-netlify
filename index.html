@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Completa para Instalar Magic TV - Streaming Gratis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #ff4d4d;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .lead {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* Main Content */
+        .note-box {
+            background-color: white;
+            border-left: 5px solid var(--accent);
+            padding: 25px;
+            margin: 40px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .note-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+            z-index: 0;
+        }
+        
+        .note-box-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .note-box h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        /* Method Cards */
+        .method-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+        
+        .method-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
+        .method-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .method-card h3::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            margin-top: 10px;
+        }
+        
+        .step {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .code-block {
+            background-color: #f5f7fa;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            border-left: 3px solid var(--accent);
+        }
+        
+        /* Device Images */
+        .device-image {
+            width: 100%;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+            overflow: hidden;
+        }
+        
+        .device-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .device-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            margin: 60px 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 60px;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        .animate-delay-1 {
+            animation-delay: 0.3s;
+        }
+        
+        .animate-delay-2 {
+            animation-delay: 0.6s;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .lead {
+                font-size: 1.1rem;
+            }
+            
+            .method-card {
+                padding: 20px;
+            }
+            
+            .method-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="animate__animated animate__fadeIn">
+        <div class="header-overlay"></div>
+        <div class="header-content container">
+            <h1 class="animate__animated animate__fadeInDown">Guía Completa para Instalar Magic TV</h1>
+            <p class="lead animate__animated animate__fadeIn animate__delay-1s">Mira miles de canales en vivo, películas y deportes - completamente gratis en cualquier dispositivo</p>
+            <a href="https://themagistv.com.ec/" class="btn animate__animated animate__pulse animate__infinite">Visitar Sitio Oficial</a>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="animate__animated animate__fadeIn animate__delay-1s">
+            <div class="note-box">
+                <div class="note-box-content">
+                    <h3>⚠️ Notas Importantes Antes de Comenzar</h3>
+                    <p>1. <strong><a href="https://themagistv.com.ec/">Magic TV</a> no está en tiendas oficiales</strong> - La instalaremos manualmente de forma segura</p>
+                    <p>2. <strong>Usa un VPN</strong> - Recomendamos NordVPN para privacidad y evitar restricciones</p>
+                    <p>3. <strong>Actualiza regularmente</strong> - Las nuevas versiones corrigen errores y añaden funciones</p>
+                    <p><em>Pro Tip: Guarda el sitio oficial de Magic TV en favoritos para actualizaciones!</em></p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2 class="animate__animated animate__fadeIn">Métodos de Instalación</h2>
+            
+            <div class="method-card animate__animated animate__fadeInLeft">
+                <h3>🔥 Firestick/Fire TV</h3>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <p><strong>Desbloquea tu Firestick</strong><br>
+                    Ve a <strong>Ajustes → Mi Fire TV → Opciones de desarrollador</strong><br>
+                    Activa <strong>Apps de orígenes desconocidos</strong></p>
+                </div>
+                
+                <div class="device-image floating">
+                    <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Firestick setup">
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <p><strong>Instala la aplicación Downloader</strong><br>
+                    Busca <strong>"Downloader"</strong> en la Amazon App Store<br>
+                    Instálala y ábrela</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <p><strong>Descarga Magic TV</strong><br>
+                    En Downloader, ingresa:</p>
+                    <div class="code-block">https://themagistv.com.ec/download</div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <p><strong>Instala y Disfruta</strong><br>
+                    Abre el archivo descargado → <strong>Instalar</strong><br>
+                    Ejecuta <strong>Magic TV</strong> desde tu lista de aplicaciones</p>
+                </div>
+                
+                <p><strong>🎉 ¡Felicidades!</strong> Ahora tienes TV en vivo, películas y deportes gratis en tu Firestick.</p>
+                <p><em>Solución de problemas: Si ves "Error al analizar", descarga el APK nuevamente.</em></p>
+            </div>
+            
+            <div class="method-card animate__animated animate__fadeInRight">
+                <h3>📱 Dispositivos Android</h3>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <p><strong>Permite orígenes desconocidos</strong><br>
+                    Ve a <strong>Ajustes → Seguridad</strong><br>
+                    Habilita <strong>Instalar aplicaciones desconocidas</strong> para tu navegador</p>
+                </div>
+                
+                <div class="device-image floating">
+                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Android phone">
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <p><strong>Descarga el APK</strong><br>
+                    Visita el sitio oficial de Magic TV<br>
+                    Descarga la última versión para Android</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <p><strong>Instala en segundos</strong><br>
+                    Abre el APK descargado<br>
+                    Toca <strong>Instalar</strong> → <strong>Abrir</strong></p>
+                </div>
+                
+                <p><strong>📺 Pro Tip:</strong> Usa Chromecast para ver en tu televisor.</p>
+            </div>
+            
+            <div class="method-card animate__animated animate__fadeInLeft">
+                <h3>📺 Smart TVs</h3>
+                <h4>Para TVs Android/Google TV:</h4>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <p>Habilita <strong>Orígenes desconocidos</strong> (Ajustes → Seguridad)</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <p>Instala <strong>Downloader</strong> desde Play Store</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <p>Ingresa la URL de Magic TV para instalarlo</p>
+                </div>
+                
+                <div class="device-image floating">
+                    <img src="https://images.unsplash.com/photo-1571415060716-baff5f717c37?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Smart TV">
+                </div>
+                
+                <h4>Para otras Smart TVs:</h4>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <p>Usa <strong>Screen Mirroring</strong> desde tu Android</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <p>O instala en un <strong>Amazon Firestick</strong> conectado a tu TV</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-section animate__animated animate__fadeIn">
+            <h2>Preguntas Frecuentes</h2>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">¿Es legal Magic TV?</h3>
+                <p>La aplicación es legal, pero verifica las leyes de tu país sobre el contenido.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">¿Por qué a veces se traba?</h3>
+                <p>Prueba:
+                <br>- Usar conexión por cable
+                <br>- Cerrar apps en segundo plano
+                <br>- Reducir la calidad de video</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">¿Cada cuánto se actualiza?</h3>
+                <p>Revisa el sitio oficial mensualmente.</p>
+            </div>
+        </section>
+    </main>
+    
+    <section class="cta-section animate__animated animate__fadeIn">
+        <div class="cta-content">
+            <h2 class="cta-title">🎬 ¿Listo para Transformar tu Streaming?</h2>
+            <p class="lead">Magic TV ofrece contenido premium sin costo alguno. ¡Sigue esta guía y comienza a disfrutar hoy mismo!</p>
+            <a href="https://themagistv.com.ec/" class="btn">Obtener Magic TV</a>
+        </div>
+    </section>
+    
+    <footer class="animate__animated animate__fadeIn">
+        <div class="container">
+            <div class="footer-logo">Magic TV Guide</div>
+            <p>Tu recurso definitivo para streaming gratis</p>
+            
+        </div>
+    </footer>
+</body>
+</html>
